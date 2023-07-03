@@ -1,63 +1,96 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faUmbrellaBeach,
-  faXmark,
-  faBars,
-} from '@fortawesome/free-solid-svg-icons';
+import React from 'react';
+import { LuPalmtree } from 'react-icons/lu';
+import { MdAccountCircle } from 'react-icons/md';
+import { FiMenu } from 'react-icons/fi';
+import { AiFillCloseCircle } from 'react-icons/ai';
 import { useState } from 'react';
+import backG from './img/p-2.jpg';
 
 function Navbar() {
-  const [nav, setNav] = useState(false);
+  const [nav, setnav] = useState(false);
 
-  const handleNav = () => {
-    setNav(!nav);
+  const navSlide = () => {
+    setnav(!nav);
   };
 
   return (
-    <div className="flex justify-between items-center h-24 mx-auto max-w-[1240px] px-5 z-10 relative">
-      <h1 className="w-full text-3xl font-bold">
-        <i className="px-3">
-          <FontAwesomeIcon icon={faUmbrellaBeach} />
-        </i>
-        WD65P
-      </h1>
-      <ul className="font-bold type hidden md:flex cursor-pointer">
-        <li className="px-5 py-2" href="/">
-          Home
+    <nav className="flex z-10 w-full absolute bg-transparent justify-between items-center h-20 ">
+      <div className="hidden md:flex items-center px-4 gap-2">
+        <LuPalmtree
+          size={50}
+          className=" bg-orange-500 text-emerald-600 rounded-full p-1"
+        />
+        <h1 className=" text-3xl text font-bold">Group-5.</h1>
+      </div>
+
+      <ul className="hidden md:flex font-medium text-xl uppercase">
+        <li className="p-4 hover:text-emerald-600 duration-500">
+          <a href="/">Home</a>
         </li>
-        <li className="px-5 py-2">About</li>
-        <li className="px-5 py-2">Travel</li>
-        <li className="px-5 py-2">Contacts</li>
-        <li className="px-5 py-2 bg-blue-500 rounded-full">Login</li>
+        <li className="p-4 hover:text-emerald-600 duration-500">
+          <a href="/">Home</a>
+        </li>
+        <li className="p-4 hover:text-emerald-600 duration-500">
+          <a href="/">Home</a>
+        </li>
+        <li className="p-4 hover:text-emerald-600 duration-500">
+          <a href="/">Home</a>
+        </li>
       </ul>
-      <div onClick={handleNav} className="block md:hidden cursor-pointer">
-        {!nav ? (
-          <FontAwesomeIcon icon={faXmark} fontSize={20} />
-        ) : (
-          <FontAwesomeIcon icon={faBars} fontSize={20} />
-        )}
+      <div className="flex items-center px-4 gap-4 text-xl font-medium ">
+        <button className="hover:text-emerald-600 duration-500 uppercase">
+          <a href=""></a>Login
+        </button>
+        <button>
+          <a href="">
+            <MdAccountCircle size={30} />
+          </a>
+        </button>
+
+        {/* Hamburger */}
       </div>
       <div
+        onClick={navSlide}
+        className="z-10 px-4 cursor-pointer text-emerald-600 md:hidden"
+      >
+        {nav ? <AiFillCloseCircle size={30} /> : <FiMenu size={30} />}
+      </div>
+
+      {/* Mobile */}
+      <div
         className={
-          !nav
-            ? 'fixed left-0 top-0 w-[50%] h-full border-r bg-slate-400 border-r-emerald-300 ease-in-out duration-500 cursor-pointer md:hidden'
-            : 'fixed left-[-100%] z-10'
+          nav
+            ? 'absolute left-0 w-full h-full top-0 flex flex-col duration-1000  md:hidden '
+            : 'absolute top-[-2000%]'
         }
       >
-        <h1 className="w-full text-3xl font-bold py-5">
-          <i className="px-3">
-            <FontAwesomeIcon icon={faUmbrellaBeach} />
-          </i>
-          WD65P
-        </h1>
-        <ul>
-          <li className="p-5">Home</li>
-          <li className="p-5">About</li>
-          <li className="p-5">Services</li>
-          <li className="p-5">Contacts</li>
+        <ul
+          className="px-0 py-14 border rounded-b-md bg-center bg-cover"
+          style={{ backgroundImage: `url(${backG})` }}
+        >
+          <li className="p-4">
+            <a href="/">Home</a>
+          </li>
+          <li className="p-4">
+            <a href="/">Home</a>
+          </li>
+          <li className="p-4">
+            <a href="/">Home</a>
+          </li>
+          <li className="p-4">
+            <a href="/">Home</a>
+          </li>
+          <div className="flex flex-col">
+            <button className=" mt-44">
+              <a href="/">Login</a>
+            </button>
+            <button>
+              <a href="/">My Account</a>
+            </button>
+          </div>
         </ul>
       </div>
-    </div>
+    </nav>
   );
 }
 

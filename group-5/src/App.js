@@ -1,12 +1,12 @@
 import React from 'react';
 import Navbar from './components/Navbar';
-import Landing from './components/Landing';
+import Hero from './components/Hero';
 
 function App() {
   return (
     <div>
       <Navbar />
-      <Landing />
+      <Hero />
     </div>
   );
 }
