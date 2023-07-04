@@ -10,7 +10,8 @@ function Hero() {
         muted
         className="w-full h-full object-cover"
         src={backGround}
-      ></video>
+      />
+      <div className="absolute w-full h-full top-0 left-0 bg-gray-900/20"></div>
     </div>
   );
 }
