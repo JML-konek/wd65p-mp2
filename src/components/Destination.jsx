@@ -43,8 +43,8 @@ function Destination() {
                   <option value="" className="py-10">
                     Boracay
                   </option>
-                  <option value="">Cebu</option>
                   <option value="">Ilocos</option>
+                  <option value="">Palawan</option>
                 </select>
                 <label htmlFor="" className="py-2">
                   Date of Travel:{' '}
