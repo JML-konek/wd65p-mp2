@@ -65,7 +65,7 @@ function Destination() {
       </div>
       {/* RIGHT */}
 
-      <div className="pt-4 md:pt-0">
+      <div className="pt-4 md:pt-0 md:pl-2">
         <div className="py-10 text-center bg-emerald-600 rounded-none md:rounded-t-3xl">
           <h2>Plan your Vacation</h2>
         </div>
