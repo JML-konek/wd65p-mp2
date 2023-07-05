@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/wd65p-mp2/static/css/main.fe55c252.css",
+    "main.js": "/wd65p-mp2/static/js/main.6e234598.js",
+    "static/media/video-2.mp4": "/wd65p-mp2/static/media/video-2.f5df80338fe353acc522.mp4",
+    "static/media/p-1.jpg": "/wd65p-mp2/static/media/p-1.f482bc1a162285a37ec2.jpg",
+    "static/media/p-2.jpg": "/wd65p-mp2/static/media/p-2.fd32c018a12d2814b314.jpg",
+    "index.html": "/wd65p-mp2/index.html",
+    "main.fe55c252.css.map": "/wd65p-mp2/static/css/main.fe55c252.css.map",
+    "main.6e234598.js.map": "/wd65p-mp2/static/js/main.6e234598.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fe55c252.css",
+    "static/js/main.6e234598.js"
+  ]
+}
