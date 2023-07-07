@@ -36,7 +36,7 @@ function Destination() {
   };
 
   return (
-    <div className="max-w-[1440px] mx-auto grid pt-4 md:grid-cols-3 md:pt-12">
+    <div className="max-w-[1440px] mx-auto grid pt-4 lg:grid-cols-3 lg:pt-12">
       {/* LEFT */}
       <div className="lg:col-span-2 flex flex-col justify-evenly md:pr-2">
         <div className="relative w-full flex h-full object-center col-span-2 row-span-2 ">
@@ -65,7 +65,7 @@ function Destination() {
       </div>
       {/* RIGHT */}
 
-      <div className="pt-4 md:pt-0 md:pl-2">
+      <div className="pt-4 lg:pt-0 lg:pl-2">
         <div className="py-10 text-center bg-emerald-600 rounded-none md:rounded-t-3xl">
           <h2>Plan your Vacation</h2>
         </div>
