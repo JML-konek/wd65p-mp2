@@ -1,103 +1,106 @@
 const db = require('../models');
-const Task = db.Task;
+const Vacation = db.Vacation;
 
-// create and save a task
+// create and save a vacation
 exports.create = (req, res) => {
   // validate
-  if(!req.body.name || !req.body.description) {
+  if (!req.body.name || !req.body.email) {
     res.status(400).send({
-      message: `Name or Description cannot be empty.`,
+      message: `Name or email cannot be empty.`,
       success: false,
-      errorCode: `ERR9001`
+      errorCode: `ERR9001`,
     });
     return;
   }
 
   // create object in memory
-  const {name, description, priority, completed, avatar} = req.body;
-  const task = {
-    name, description
+  const { name, mobile_number, email, destination, date_of_travel } = req.body;
+  const vacation = {
+    name,
+    mobile_number,
+    email,
+    destination,
+    date_of_travel,
   };
-  task.priority = priority || task.priority;
-  task.completed = (completed == true || completed == false) ? completed : task.completed;
-  task.avatar = avatar || task.avatar;
+  vacation.name = name || vacation.name;
+  vacation.email = email == true || email == false ? email : vacation.email;
+  vacation.mobile_number = mobile_number || vacation.mobile_number;
+  vacation.date_of_travel = date_of_travel || vacation.date_of_travel;
 
   // save to db
-  Task.create(task)
+  Vacation.create(vacation)
     .then(data => {
       res.status(200).send({
         success: true,
-        message: 'Task saved successfully.',
-        data: data
+        message: 'Vacation saved successfully.',
+        data: data,
       });
     })
     .catch(error => {
       res.status(500).send({
         success: false,
-        message: `Saving of Task data failed. Error: ${error}`,
+        message: `Saving of Vacation data failed. Error: ${error}`,
         errorCode: `ERR8001`,
-      })
+      });
     });
-
 };
 
-// retrieve all tasks
-exports.findAll = (req, res) => { 
+// retrieve all vacations
+exports.findAll = (req, res) => {
   // find and respond
-  Task.findAll()
+  Vacation.findAll()
     .then(data => {
       res.status(200).send({
         success: true,
-        data: data
+        data: data,
       });
     })
     .catch(error => {
       res.status(500).send({
         success: false,
-        message: `Cannot retrieve task records. Error: ${error}`,
+        message: `Cannot retrieve vacation records. Error: ${error}`,
         errorCode: `ERR8002`,
-      })
+      });
     });
 };
 
-// retrieve a single task 
+// retrieve a single vacation
 exports.findOne = (req, res) => {
   // find and respond
   const id = req.params.id;
 
-  Task.findByPk(id)
+  Vacation.findByPk(id)
     .then(data => {
       if (data) {
         res.status(200).send({
           success: true,
-          data: data
+          data: data,
         });
       } else {
         res.status(400).send({
           success: false,
-          message: `Cannot find task data with id = ${id}`,
-          errorCode: `ERR7001`
+          message: `Cannot find vacation data with id = ${id}`,
+          errorCode: `ERR7001`,
         });
       }
     })
     .catch(error => {
       res.status(500).send({
         success: false,
-        message: `Cannot retrieve task record. Error: ${error}`,
+        message: `Cannot retrieve vacation record. Error: ${error}`,
         errorCode: `ERR8003`,
-      })
+      });
     });
-
 };
 
-// update a task
-exports.update = (req, res) => { 
+// update a vacation
+exports.update = (req, res) => {
   // validate
-  if(!req.body.name || !req.body.description) {
+  if (!req.body.name || !req.body.description) {
     res.status(400).send({
       message: `Name and/or Description cannot be empty during an update.`,
       success: false,
-      errorCode: `ERR9002`
+      errorCode: `ERR9002`,
     });
     return;
   }
@@ -106,31 +109,36 @@ exports.update = (req, res) => {
   const id = req.params.id;
 
   // create object in memory
-  const {name, description, priority, completed, avatar} = req.body;
-  const task = {
-    name, description
+  const { name, mobile_number, email, destination, date_of_travel } = req.body;
+  const vacation = {
+    name,
+    mobile_number,
+    email,
+    destination,
+    date_of_travel,
   };
-  task.priority = priority || task.priority;
-  task.completed = (completed == true || completed == false) ? completed : task.completed;
-  task.avatar = avatar || task.avatar;
+  vacation.name = name || vacation.name;
+  vacation.email = email == true || email == false ? email : vacation.email;
+  vacation.mobile_number = mobile_number || vacation.mobile_number;
+  vacation.date_of_travel = date_of_travel || vacation.date_of_travel;
 
   // save to db
-  Task.update(task, {where: {id: id}})
+  Vacation.update(vacation, { where: { id: id } })
     .then(num => {
       if (num && num[0] && num >= 1) {
         res.status(200).send({
           success: true,
-          message: 'Task updated successfully.',
+          message: 'Vacation updated successfully.',
           data: {
             id: id,
-            recordsAffected: num && num[0] ? num[0] : 1
-          }
+            recordsAffected: num && num[0] ? num[0] : 1,
+          },
         });
       } else {
         res.status(400).send({
           success: false,
-          message: `Cannot find task data with id = ${id}, update data ignored.`,
-          errorCode: `ERR7002`
+          message: `Cannot find vacation data with id = ${id}, update data ignored.`,
+          errorCode: `ERR7002`,
         });
       }
     })
@@ -139,20 +147,20 @@ exports.update = (req, res) => {
         success: false,
         message: `Cannot perform update at the moment. Error: ${error}`,
         errorCode: `ERR8004`,
-      })
+      });
     });
 };
 
-// delete all tasks
+// delete all vacations
 exports.deleteAll = (req, res) => {
-  Task.destroy({where: {}, trucate: true})
+  Vacation.destroy({ where: {}, trucate: true })
     .then(nums => {
       res.status(200).send({
         success: true,
-        message: `${nums} task${nums > 1 ? 's' : ''} deleted successfully.`,
+        message: `${nums} vacation${nums > 1 ? 's' : ''} deleted successfully.`,
         data: {
-          recordsAffected: nums
-        }
+          recordsAffected: nums,
+        },
       });
     })
     .catch(error => {
@@ -160,32 +168,32 @@ exports.deleteAll = (req, res) => {
         success: false,
         message: `Cannot perform date all at the moment. Error: ${error}`,
         errorCode: `ERR8005`,
-      })
+      });
     });
 };
 
-// delete a single task
+// delete a single vacation
 exports.deleteOne = (req, res) => {
   // get id
   const id = req.params.id;
 
   // save to db and respond
-  Task.destroy({ where: {id : id}})
+  Vacation.destroy({ where: { id: id } })
     .then(num => {
       if (num >= 1) {
         res.status(200).send({
           success: true,
-          message: 'Task deleted successfully.',
+          message: 'Vacation deleted successfully.',
           data: {
             id: id,
-            recordsAffected: num
-          }
+            recordsAffected: num,
+          },
         });
       } else {
         res.status(400).send({
           success: false,
-          message: `Cannot delete task data with id = ${id}, delete request ignored.`,
-          errorCode: `ERR7003`
+          message: `Cannot delete vacation data with id = ${id}, delete request ignored.`,
+          errorCode: `ERR7003`,
         });
       }
     })
@@ -194,6 +202,6 @@ exports.deleteOne = (req, res) => {
         success: false,
         message: `Cannot perform deletion at the moment. Error: ${error}`,
         errorCode: `ERR8006`,
-      })
+      });
     });
 };

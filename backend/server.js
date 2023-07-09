@@ -7,7 +7,7 @@ const cors = require('cors');
 
 const app = express();
 const corsOptions = {
-  origin: ['http://localhost:3000', '*']
+  origin: ['http://localhost:3000', '*'],
 };
 
 // configure server
@@ -16,16 +16,19 @@ app.use(express.json());
 app.use(express.urlencoded());
 
 // db conn
-const db = require('./models');  // ./models/index // ./models/index.js
-db.sequelize.sync().then(() => {
-  console.log(`Synced db.`);
-}).catch(error => {
-  console.error(`Encounered an error during db sync, error: ${error}`);
-});
+const db = require('./models'); // ./models/index // ./models/index.js
+db.sequelize
+  .sync()
+  .then(() => {
+    console.log(`Synced db.`);
+  })
+  .catch(error => {
+    console.error(`Encounered an error during db sync, error: ${error}`);
+  });
 
 // routes
-require('./routes/task.routes')(app);
-require('./routes/comment.routes')(app);
+
+require('./routes/vacation.routes')(app);
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {

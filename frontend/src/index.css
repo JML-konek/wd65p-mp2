@@ -9,3 +9,9 @@
   margin: 0%;
   font-family: 'Poppins', sans-serif;
 }
+
+@media (max-width: 767px) {
+  .carousel-image {
+    width: 100%;
+  }
+}
