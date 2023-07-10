@@ -10,8 +10,6 @@
   font-family: 'Poppins', sans-serif;
 }
 
-@media (max-width: 767px) {
-  .carousel-image {
-    width: 100%;
-  }
+.gradient {
+  background: linear-gradient(90deg, #65eb59 0%, #daae51 100%);
 }
