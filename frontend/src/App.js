@@ -1,22 +1,14 @@
 import React from 'react';
-// import Carousel from './components/Carousel';
-// import Navbar from './components/Navbar';
-// import Hero from './components/Hero';
-// import Destination from './components/Destination';
-import Back from './components/Back';
-// import Packages from './components/Packages';
-// import Eguls from './components/Eguls';
+import Navbar from './components/Navbar';
+import Landing from './components/Landing';
+import Login from './components/Login';
 
 function App() {
   return (
     <div className="">
-      <Back />
-      {/* <Carousel /> */}
-      {/* <Navbar /> */}
-      {/* <Eguls /> */}
-      {/* <Hero /> */}
-      {/* <Destination /> */}
-      {/* <Packages />  */}
+      <Navbar />
+      <Landing />
+      <Login />
     </div>
   );
 }

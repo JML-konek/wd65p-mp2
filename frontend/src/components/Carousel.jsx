@@ -6,10 +6,11 @@ import {
 import pix1 from './img/p-1.jpg';
 import pix2 from './img/p-2.jpg';
 import pix3 from './img/p-3.jpg';
+import pix4 from './img/video-2.mp4';
 
 function Carousel() {
   const [slide, setSlide] = useState(0);
-  const pix = [pix1, pix2, pix3]; // Replace with your own image URLs
+  const pix = [pix1, pix2, pix3, pix4]; // Replace with your own image URLs
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -29,35 +30,42 @@ function Carousel() {
   };
 
   return (
-    <div className="max-w-[1440] h-full mx-auto flex items-center justify-center">
-      <div className="relative w-[720px] h-[480px] overflow-hidden">
-        <div
-          className="flex transition-transform duration-1000"
-          style={{ transform: `translateX(-${slide * 100}%)` }}
-        >
-          {pix.map((image, index) => (
+    <div className="relative grid lg:w-[720px] h-[480px] overflow-hidden rounded-xl">
+      <div
+        className="flex transition-transform duration-1000"
+        style={{ transform: `translateX(-${slide * 100}%)` }}
+      >
+        {[
+          pix.map((image, index) => (
             <img
               key={index}
               src={image}
               alt=""
               className="object-cover w-full h-full"
             />
-          ))}
-        </div>
-        <div className="absolute inset-0 flex items-center justify-between px-4 text-3xl">
-          <BiSolidChevronLeftCircle onClick={prev} />
-          <BiSolidChevronRightCircle onClick={next} />
-        </div>
-        <div className="absolute flex gap-2 transform -translate-x-1/2 bottom-4 left-1/2">
-          {pix.map((_, index) => (
-            <div
-              key={index}
-              className={`w-3 h-3 rounded-full ${
-                slide === index ? 'bg-blue-500' : 'bg-gray-300'
-              }`}
-            />
-          ))}
-        </div>
+          )),
+          <video
+            src={pix4}
+            autoPlay
+            muted
+            loop
+            className="object-cover w-full h-full "
+          />,
+        ]}
+      </div>
+      <div className="absolute inset-0 flex items-center justify-between px-4 text-3xl">
+        <BiSolidChevronLeftCircle onClick={prev} />
+        <BiSolidChevronRightCircle onClick={next} />
+      </div>
+      <div className="absolute flex gap-2 transform -translate-x-1/2 bottom-4 left-1/2">
+        {pix.map((_, index) => (
+          <div
+            key={index}
+            className={`w-8 h-1 rounded-full ${
+              slide === index ? 'bg-blue-500' : 'bg-white'
+            }`}
+          />
+        ))}
       </div>
     </div>
   );

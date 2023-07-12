@@ -1,97 +1,105 @@
-import React from 'react';
-import { LuPalmtree } from 'react-icons/lu';
-import { MdAccountCircle } from 'react-icons/md';
+import React, { useState } from 'react';
 import { FiMenu } from 'react-icons/fi';
 import { AiFillCloseCircle } from 'react-icons/ai';
-import { useState } from 'react';
-import backG from './img/p-2.jpg';
+// import { SiReactos } from 'react-icons/si';
 
-function Navbar() {
-  const [nav, setnav] = useState(false);
+let Links = [
+  { name: 'Home', link: '/' },
+  { name: 'Tour', link: '/' },
+  { name: 'Packages', link: '/' },
+  { name: 'About', link: '/' },
+  { name: 'Contacts', link: '/' },
+];
+
+function Eguls() {
+  const [navBar, setnavBar] = useState(false);
 
   const navSlide = () => {
-    setnav(!nav);
+    setnavBar(!navBar);
   };
-
   return (
-    <nav className="flex z-10 w-full absolute bg-transparent justify-between items-center h-20 ">
-      <div className="hidden md:flex items-center px-4 gap-2">
-        <LuPalmtree
-          size={50}
-          className=" bg-orange-500 text-emerald-600 rounded-full p-1"
-        />
-        <h1 className=" text-3xl text font-bold">Group-5.</h1>
-      </div>
+    <div className="relative top-0 left-0 z-10 w-full ">
+      <div className="items-center py-4 shadow-md gradient justify-evenly md:flex md:px-10 px-7">
+        <div className="flex items-center text-2xl font-bold cursor-pointer">
+          <svg
+            width="50px"
+            height="50px"
+            viewBox="0 0 1024 1024"
+            class="icon"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            className="mr-2"
+          >
+            <path
+              d="M885.76 921.28h-106.56l-0.32-26.77333333c0.10666667-0.74666667-0.10666667-68.26666667-7.46666667-171.52-8.96-125.65333333-21.76-243.41333333-167.57333333-334.82666667l24.53333333-26.02666667c78.72 46.93333333 146.24 112 178.88 167.36 42.34666667 72 56.85333333 110.29333333 69.54666667 176.85333334 21.65333333 112.64 9.49333333 211.30666667 8.96 214.93333333z"
+              fill="#755E49"
+            />
+            <path
+              d="M565.65333333 893.40444445c0 14.93333333-1.38666667 29.44-4.05333333 43.52H129.28c-2.66666667-14.08-4.05333333-28.69333333-4.05333333-43.52 0-25.81333333 4.26666667-50.66666667 11.94666666-73.81333334 29.76-88.64 111.78666667-152.32 208.21333334-152.32 96.42666667 0 178.45333333 63.68 208.21333333 152.32 7.89333333 23.14666667 12.05333333 48 12.05333333 73.81333334z"
+              fill="#FF9D00"
+            />
+            <path
+              d="M989.12 926.61333333c0 16.21333333-6.61333333 30.82666667-17.17333333 41.49333334-10.56 10.66666667-25.28 17.17333333-41.49333334 17.17333333h-838.4c-32.42666667 0-58.66666667-26.24-58.66666666-58.66666667 0-16.21333333 6.61333333-30.82666667 17.17333333-41.49333333 10.66666667-10.56 25.28-17.17333333 41.49333333-17.17333333h838.4c32.42666667 0 58.66666667 26.24 58.66666667 58.66666666z"
+              fill="#00B7FF"
+            />
+            <path
+              d="M981.86666667 399.57333333c10.45333333 0 14.50666667-17.17333333 5.86666666-24.42666666-31.14666667-26.24-91.73333333-64.21333333-181.01333333-64.74666667-89.92-0.64-150.29333333 38.50666667-180.90666667 65.28-8.53333333 7.46666667-4.37333333 24.32 5.97333334 24.32l350.08-0.42666667z"
+              fill="#02C652"
+            />
+            <path
+              d="M882.77333333 158.61333333c7.36-7.36-1.81333333-22.4-13.12-21.44-40.64 3.52-110.29333333 19.52-173.76 82.24-64 63.14666667-79.04 133.44-81.81333333 174.08-0.74666667 11.30666667 14.08 20.37333333 21.44 13.01333334l247.25333333-247.89333334z"
+              fill="#02C652"
+            />
+            <path
+              d="M648 391.89333333c7.36-7.36-1.81333333-22.4-13.12-21.44-40.64 3.52-110.29333333 19.52-173.76 82.24-64 63.14666667-79.04 133.44-81.81333333 174.08-0.74666667 11.30666667 14.08 20.37333333 21.44 13.01333334l247.25333333-247.89333334z"
+              fill="#02C652"
+            />
+            <path
+              d="M657.92 44.69333333c0-10.45333333-17.17333333-14.50666667-24.42666667-5.86666666-26.24 31.14666667-64.21333333 91.73333333-64.74666666 181.01333333-0.64 89.92 38.50666667 150.29333333 65.28 180.90666667 7.46666667 8.53333333 24.32 4.37333333 24.32-5.97333334l-0.42666667-350.08z"
+              fill="#02C652"
+            />
+            <path
+              d="M657.92 372.58666667c0-10.45333333-17.17333333-14.50666667-24.42666667-5.86666667-26.24 31.14666667-64.21333333 91.73333333-64.74666666 181.01333333-0.64 89.92 38.50666667 150.29333333 65.28 180.90666667 7.46666667 8.53333333 24.32 4.37333333 24.32-5.97333333l-0.42666667-350.08z"
+              fill="#02C652"
+            />
+            <path
+              d="M642.66666667 402.24c10.45333333 0 14.50666667-17.17333333 5.86666666-24.42666667-31.14666667-26.24-91.73333333-64.21333333-181.01333333-64.74666666-89.92-0.64-150.29333333 38.50666667-180.90666667 65.28-8.53333333 7.46666667-4.37333333 24.32 5.97333334 24.32l350.08-0.42666667z"
+              fill="#02C652"
+            />
+          </svg>
 
-      <ul className="hidden md:flex font-medium text-xl uppercase">
-        <li className="p-4 hover:text-emerald-600 duration-500">
-          <a href="/">Home</a>
-        </li>
-        <li className="p-4 hover:text-emerald-600 duration-500">
-          <a href="/">Home</a>
-        </li>
-        <li className="p-4 hover:text-emerald-600 duration-500">
-          <a href="/">Home</a>
-        </li>
-        <li className="p-4 hover:text-emerald-600 duration-500">
-          <a href="/">Home</a>
-        </li>
-      </ul>
-      <div className="flex items-center px-4 gap-4 text-xl font-medium ">
-        <button className="hover:text-emerald-600 duration-500 uppercase">
-          <a href=""></a>Login
-        </button>
-        <button>
-          <a href="">
-            <MdAccountCircle size={30} />
-          </a>
-        </button>
-
-        {/* Hamburger */}
-      </div>
-      <div
-        onClick={navSlide}
-        className="z-10 px-4 cursor-pointer text-emerald-600 md:hidden"
-      >
-        {nav ? <AiFillCloseCircle size={30} /> : <FiMenu size={30} />}
-      </div>
-
-      {/* Mobile */}
-      <div
-        className={
-          nav
-            ? 'absolute left-0 w-full h-full top-0 flex flex-col duration-1000  md:hidden '
-            : 'absolute top-[-2000%]'
-        }
-      >
-        <ul
-          className="px-0 py-14 border rounded-b-md bg-center bg-cover"
-          style={{ backgroundImage: `url(${backG})` }}
+          <h1>Tour</h1>
+        </div>
+        <div
+          onClick={navSlide}
+          className="absolute text-3xl cursor-pointer right-8 top-6 md:hidden"
         >
-          <li className="p-4">
-            <a href="/">Home</a>
-          </li>
-          <li className="p-4">
-            <a href="/">Home</a>
-          </li>
-          <li className="p-4">
-            <a href="/">Home</a>
-          </li>
-          <li className="p-4">
-            <a href="/">Home</a>
-          </li>
-          <div className="flex flex-col">
-            <button className=" mt-44">
-              <a href="/">Login</a>
-            </button>
-            <button>
-              <a href="/">My Account</a>
-            </button>
-          </div>
+          {navBar ? <AiFillCloseCircle /> : <FiMenu />}
+        </div>
+        <ul
+          className={`absolute pb-12 pt-4 gradient lg:bg-transparent md:bg-transparent md:flex h md:items-center md:pb-0 
+        md:static md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in
+         ${
+           navBar ? ' top-16  opacity-100' : 'top-[-490px]'
+         } md:opacity-100 opacity-0`}
+        >
+          {Links.map(Link => (
+            <li key={Link.name} className="my-4 text-xl md:ml-4 md:my-0">
+              <a
+                href={Link.link}
+                className="text-gray-800 duration-500 hover:text-gray-400"
+              >
+                {Link.name}
+              </a>
+            </li>
+          ))}
+          <button className="flex px-4 py-2 text-white duration-500 rounded cursor-pointer bg-emerald-600 md:ml-8 hover:bg-emerald-400">
+            Sign-In
+          </button>
         </ul>
       </div>
-    </nav>
+    </div>
   );
 }
 
-export default Navbar;
+export default Eguls;

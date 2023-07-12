@@ -10,6 +10,7 @@
   font-family: 'Poppins', sans-serif;
 }
 
-.gradient {
+.gradient,
+.login {
   background: linear-gradient(90deg, #65eb59 0%, #daae51 100%);
 }
