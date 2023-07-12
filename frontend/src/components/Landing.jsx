@@ -1,6 +1,5 @@
 import React from 'react';
 import Carousel from './Carousel';
-import pix1 from './img/p-1.jpg';
 
 function Landing() {
   return (

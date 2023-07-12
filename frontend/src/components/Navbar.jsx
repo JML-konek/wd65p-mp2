@@ -94,7 +94,7 @@ function Eguls() {
             </li>
           ))}
           <button className="flex px-4 py-2 text-white duration-500 rounded cursor-pointer bg-emerald-600 md:ml-8 hover:bg-emerald-400">
-            Sign-In
+            Login
           </button>
         </ul>
       </div>
