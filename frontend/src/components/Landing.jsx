@@ -3,8 +3,8 @@ import Carousel from './Carousel';
 
 function Landing() {
   return (
-    <div className="gradient">
-      <div className="grid h-full max-w-full gap-4 px-4 lg:grid-cols-3 ">
+    <div className=" gradient">
+      <div className="grid h-full max-w-full gap-4 px-4 py-8 lg:grid-cols-3">
         <div className="flex-col w-full h-full py-8 justify-evenly">
           <div className="px-4">
             <h2 className="text-6xl ">Welcome to Tour</h2>
@@ -20,7 +20,7 @@ function Landing() {
           <Carousel />
         </div>
       </div>
-      <div className="relative -mt-12 lg:-mt-20">
+      <div className="relative -mt-10 lg:-mt-16">
         <svg
           viewBox="0 0 1428 174"
           version="1.1"

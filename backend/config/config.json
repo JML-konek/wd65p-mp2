@@ -2,7 +2,7 @@
   "development": {
     "username": "admin",
     "password": "admin",
-    "database": "travel-tour",
+    "database": "task-node",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

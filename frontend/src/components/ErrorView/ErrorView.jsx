@@ -19,7 +19,7 @@ function ErrorView() {
                 </h4>
                 <p className="mb-8 text-lg text-white">{error.error.message}</p>
                 <Link
-                  to={'/home'}
+                  to={'/'}
                   className="inline-block px-8 py-3 text-base font-semibold text-center text-white transition border rounded-lg bg-emerald-600 border-emerald-600 hover:bg-emerald-700 hover:text-primary"
                 >
                   Go to Home

@@ -6,6 +6,7 @@ import ErrorView from './components/ErrorView/ErrorView';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Landing from './components/Landing';
 import Login from './components/Login/Login';
+import Packages from './components/Packages';
 
 const router = createBrowserRouter([
   {
@@ -13,15 +14,15 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <ErrorView />,
     children: [
-      {
-        path: '/home',
-        element: <Landing />,
-      },
-      {
-        path: '/Login',
-        element: <Login />,
-      },
+      // {
+      //   path: '/home',
+      //   element: <App />,
+      // },
     ],
+  },
+  {
+    path: '/login',
+    element: <Login />,
   },
 ]);
 // {/* <RouterProvider router={router} /> */}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FiMenu } from 'react-icons/fi';
 import { AiFillCloseCircle } from 'react-icons/ai';
+import { Link, NavLink } from 'react-router-dom';
 // import { SiReactos } from 'react-icons/si';
 
 let Links = [
@@ -11,7 +12,7 @@ let Links = [
   { name: 'Contacts', link: '/' },
 ];
 
-function Eguls() {
+function Navbar() {
   const [navBar, setnavBar] = useState(false);
 
   const navSlide = () => {
@@ -25,10 +26,9 @@ function Eguls() {
             width="50px"
             height="50px"
             viewBox="0 0 1024 1024"
-            class="icon"
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
-            className="mr-2"
+            className="mr-2 icon"
           >
             <path
               d="M885.76 921.28h-106.56l-0.32-26.77333333c0.10666667-0.74666667-0.10666667-68.26666667-7.46666667-171.52-8.96-125.65333333-21.76-243.41333333-167.57333333-334.82666667l24.53333333-26.02666667c78.72 46.93333333 146.24 112 178.88 167.36 42.34666667 72 56.85333333 110.29333333 69.54666667 176.85333334 21.65333333 112.64 9.49333333 211.30666667 8.96 214.93333333z"
@@ -85,21 +85,25 @@ function Eguls() {
         >
           {Links.map(Link => (
             <li key={Link.name} className="my-4 text-xl md:ml-4 md:my-0">
-              <a
-                href={Link.link}
+              <NavLink
+                to={Link.link}
                 className="text-gray-800 duration-500 hover:text-gray-400"
               >
                 {Link.name}
-              </a>
+              </NavLink>
             </li>
           ))}
-          <button className="flex px-4 py-2 text-white duration-500 rounded cursor-pointer bg-emerald-600 md:ml-8 hover:bg-emerald-400">
+
+          <Link
+            to="/login"
+            className="flex px-4 py-2 text-white duration-500 rounded cursor-pointer bg-emerald-600 md:ml-8 hover:bg-emerald-400"
+          >
             Login
-          </button>
+          </Link>
         </ul>
       </div>
     </div>
   );
 }
 
-export default Eguls;
+export default Navbar;
